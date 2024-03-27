@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextDisappear : MonoBehaviour{
-	public float time = 10; //Seconds to read the text
+	[SerializeField] private Button exitTutorial;
+	[SerializeField] private GameObject tutorialScreen;
+	[SerializeField] private GameObject truckHUD;
 
-	IEnumerator Start ()
-	{
-		yield return new WaitForSeconds(time);
-		Destroy(gameObject);
+	private void Start(){
+		tutorialScreen.SetActive(true);
+	}
+
+	public void TutorialButtonClick(){
+		tutorialScreen.SetActive(false);
+		truckHUD.SetActive(true);
 	}
 }

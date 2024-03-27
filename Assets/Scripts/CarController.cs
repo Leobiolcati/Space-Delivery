@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour{
     private const string HORIZONTAL = "Horizontal";
@@ -86,5 +87,13 @@ public class CarController : MonoBehaviour{
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
+    }
+
+    private void Update(){
+        if (Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene(1);
+            Debug.Log("Resetting the scene/game.");
+            Score.total_score = 100;
+        }
     }
 }
